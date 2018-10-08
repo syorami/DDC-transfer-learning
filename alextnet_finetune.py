@@ -42,11 +42,11 @@ def train_alexnet(epoch, model, learning_rate, source_loader):
     log_interval = 10
     LEARNING_RATE = step_decay(epoch, learning_rate)
     print(f'Learning Rate: {LEARNING_RATE}')
-    optimizer = optim.Adam([
+    optimizer = optim.SGD([
         {'params': model.features.parameters()},
         {'params': model.classifier.parameters()},
         {'params': model.final_classifier.parameters(), 'lr': LEARNING_RATE}
-    ], lr=LEARNING_RATE / 10)
+    ], lr=LEARNING_RATE / 10, momentum=MOMENTUM, weight_decay=L2_DECAY)
 
     # enter training mode
     model.train()
@@ -120,13 +120,15 @@ def test_alexnet(model, target_loader):
 
 if __name__ == '__main__':
 
-    ROOT_PATH = '../../data/Office31'
+    ROOT_PATH = './data/Office31'
     SOURCE_NAME = 'amazon'
     TARGET_NAME = 'webcam'
 
     BATCH_SIZE = 256
     TRAIN_EPOCHS = 200
-    learning_rate = 1e-3
+    learning_rate = 1e-2
+    L2_DECAY = 5e-4
+    MOMENTUM = 0.9
 
     source_loader = dataloader.load_training(ROOT_PATH, SOURCE_NAME, BATCH_SIZE)
     target_train_loader = dataloader.load_training(ROOT_PATH, TARGET_NAME, BATCH_SIZE)

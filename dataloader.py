@@ -5,7 +5,8 @@ from torchvision import datasets, transforms
 
 def load_training(root_path, directory, batch_size):
     transform = transforms.Compose(
-        [transforms.Resize([227,227]),
+        [transforms.Resize([256, 256]),
+         transforms.RandomCrop(227),
          transforms.ToTensor(),
          transforms.Normalize(mean=[0.485, 0.456, 0.406],
                               std=[0.229, 0.224, 0.225])
