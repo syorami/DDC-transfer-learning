@@ -11,7 +11,7 @@ The *office31* dataset used in the paper is also used in this implementation to 
 Here we have to note that *full-training* protocol, which is taking all the samples from one domain as the source or target domain, and *dowm-sample* protocol, which is choosing 20 or 8 samples per category to use as the domain data, are quite different data preparation methods. 
 
 | Methods | Results (amazon to webcame) |
-| :------: | :------: | :------: |
+| :------: | :------: |
 | fine-tuning Alexnet (full-training) in *Pytorch* | Around 51% |
 | DDC ( pretrained Alexnet with adaptation layer and MMD loss) in *Pytorch* | Around 56% |
 
