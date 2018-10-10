@@ -1,7 +1,7 @@
 # DDC-transfer-learning
 A simple implementation of Deep Domain Confusion: Maximizing for Domain Invariance which is inspired by [transferlearning][https://github.com/jindongwang/transferlearning]. 
 The project contains *Pytorch* code for fine-tuning *Alexnet* as well as *DDCnet*  implemented according to the original paper which adds an adaptation layer into the Alexnet. 
-The *office31* dataset used in the paper is also used in this implementation to test the performance of fine-tuning *Alexnet* and *DDCnet* with additional linear *MMD* loss. What’s more, 
+The *office31* dataset used in the paper is also used in this implementation to test the performance of fine-tuning *Alexnet* and *DDCnet* with additional linear *MMD* loss. 
     
 # Run the work
 * Run command `python alextnet_finetune.py` to fine-tune a pretrained *Alexnet* on *office31* dataset with *full-training*.
